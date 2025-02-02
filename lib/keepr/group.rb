@@ -3,7 +3,7 @@
 class Keepr::Group < ActiveRecord::Base
   self.table_name = 'keepr_groups'
 
-  has_ancestry orphan_strategy: :restrict
+  has_ancestry orphan_strategy: :restrict, primary_key_format: /[-A-Fa-f0-9]{36}/
 
   enum :target, %i[asset liability profit_and_loss]
 
