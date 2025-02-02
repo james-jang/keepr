@@ -3,7 +3,7 @@
 class Keepr::Account < ActiveRecord::Base
   self.table_name = 'keepr_accounts'
 
-  has_ancestry orphan_strategy: :restrict
+  has_ancestry orphan_strategy: :restrict, primary_key_format: /[-A-Fa-f0-9]{36}/
 
   enum :kind, %i[asset liability revenue expense forward debtor creditor equity]
 
